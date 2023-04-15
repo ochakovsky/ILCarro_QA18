@@ -1,15 +1,15 @@
 package tests;
 
-import manager.ApplicationManagaer;
+import manager.ApplicationManager;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
-    static ApplicationManagaer app = new ApplicationManagaer();
+    public static ApplicationManager app = new ApplicationManager();
 
     @BeforeSuite
-    public void setUp(){
+    public void setup(){
         app.init();
     }
 
