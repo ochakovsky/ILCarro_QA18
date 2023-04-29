@@ -18,6 +18,7 @@ public class ApplicationManager {
     public void init(){
 
       wd = new ChromeDriver();
+//      wd.manage().window().maximize();
       wd.navigate().to("https://ilcarro.web.app/search");
       wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 

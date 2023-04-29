@@ -1,5 +1,6 @@
 package tests;
 
+import models.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -14,11 +15,14 @@ public class TestLogin extends TestBase {
     }
     @Test
     public void positiveTestLogin(){
-        String email = "qwertyu@uytrewq.com";
-        String password = "Aa123456@";
+        User data = new User().withEmail("qwertyu@uytrewq.com").withPassword("Aa123456@");
+//        String email = "qwertyu@uytrewq.com";
+//        String password = "Aa123456@";
         app.getUser().openLoginForm();
-        app.getUser().fillLoginForm(email, password);
+//        app.getUser().fillLoginForm(email, password);
+        app.getUser().fillLoginForm(data);
         app.getUser().submitForm();
+
         Assert.assertTrue(app.getUser().isLoggedSuccess());
     }
 

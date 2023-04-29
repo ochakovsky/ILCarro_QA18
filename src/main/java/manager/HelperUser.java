@@ -1,5 +1,6 @@
 package manager;
 
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +19,11 @@ public class HelperUser extends HelperBase{
     public void fillLoginForm(String email, String password){
         type(By.id("email"), email);
         type(By.id("password"), password);
+    }
+
+    public void fillLoginForm(User data){
+        type(By.id("email"), data.getEmail());
+        type(By.id("password"), data.getPassword());
     }
 
     public void submitForm(){
@@ -66,7 +72,15 @@ public class HelperUser extends HelperBase{
         type(By.id("lastName"), lastName);
     }
 
-    public void clickCheckBox(){
-
+    public void fillRegistrationForm(User user){
+        type(By.id("email"), user.getEmail());
+        type(By.id("password"), user.getPassword());
+        type(By.id("name"), user.getName());
+        type(By.id("lastName"), user.getLastName());
     }
+
+    public void clickCheckBox(){
+        click(By.xpath("//label[@for='terms-of-use']"));
+    }
+
 }
